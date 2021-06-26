@@ -389,6 +389,7 @@
     firebase.initializeApp(firebaseConfig);
 
 
+    
     firebase.database().ref('record').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
