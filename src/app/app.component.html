@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="/assets/custom.css">
 
-<div class="container" >
+<!-- <div class="container" >
   <div class="row">
     <div class="col-md-2">
       <h2 (click)="homePage()">i.z property</h2>
@@ -20,4 +20,466 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+</div> -->
+
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SmartFarmingMalaysia</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <head>
+
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" style="text-align: left;">
+            <div class="card" style="width: 12rem;">
+                <div class="card-header">
+                    Menu
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <a href="#">Check Temperature</a> </li>
+                    <li class="list-group-item"> <a href="#">Check Humidity</a> </li>
+                    <li class="list-group-item"> <a href="#">View Camera 2</a> </li>
+                    <li class="list-group-item"> <a href="#" data-toggle="modal" data-target="#myModal">Scheduled
+                            Tasks</a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+
+            <div class="row" id="firstRow">
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-thermometer"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a2 2 0 1 1 4 0v7.627a3.5 3.5 0 1 1-4 0V2zm2-1a1 1 0 0 0-1 1v7.901a.5.5 0 0 1-.25.433A2.499 2.499 0 0 0 8 15a2.5 2.5 0 0 0 1.25-4.666.5.5 0 0 1-.25-.433V2a1 1 0 0 0-1-1z" />
+                                <path d="M9.5 12.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Temperature (°C)</h5>
+                            <div class="gauge2">
+                                <div class="gauge__body">
+                                    <div class="gauge__fill2"></div>
+                                    <div class="gauge__cover"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Humidity (%)</h5>
+                            <div class="gauge">
+                                <div class="gauge__body">
+                                    <div class="gauge__fill"></div>
+                                    <div class="gauge__cover"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z" />
+                                <path fill-rule="evenodd"
+                                    d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Water Level (m)</h5>
+                            <div class="gauge3">
+                                <div class="gauge__body">
+                                    <div class="gauge__fill3"></div>
+                                    <div class="gauge__cover"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row" id="secondRow">
+
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <svg height="16px" viewBox="0 0 384 384" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m343.59375 101.039062c-7.953125 3.847657-11.28125 13.417969-7.433594 21.367188 10.511719 21.714844 15.839844 45.121094 15.839844 69.59375 0 88.222656-71.777344 160-160 160s-160-71.777344-160-160 71.777344-160 160-160c36.558594 0 70.902344 11.9375 99.328125 34.519531 6.894531 5.503907 16.976563 4.351563 22.480469-2.566406 5.503906-6.914063 4.351562-16.984375-2.570313-22.480469-33.652343-26.746094-76-41.472656-119.238281-41.472656-105.863281 0-192 86.136719-192 192s86.136719 192 192 192 192-86.136719 192-192c0-29.335938-6.40625-57.449219-19.039062-83.527344-3.839844-7.96875-13.441407-11.289062-21.367188-7.433594zm0 0" />
+                                <path
+                                    d="m192 64c-8.832031 0-16 7.167969-16 16v112c0 8.832031 7.167969 16 16 16h80c8.832031 0 16-7.167969 16-16s-7.167969-16-16-16h-64v-96c0-8.832031-7.167969-16-16-16zm0 0" />
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Time</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" id="time"></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <?xml version="1.0" encoding="iso-8859-1"?>
+
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 420.8 420.8"
+                                style="enable-background:new 0 0 420.8 420.8;" xml:space="preserve" height="16px" viewBox="0 0 384 384" width="16px" >
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M406.8,96.4c-8.4-8.8-20-14-33.2-14h-66.4v-0.8c0-10-4-19.6-10.8-26c-6.8-6.8-16-10.8-26-10.8h-120
+                                            c-10.4,0-19.6,4-26.4,10.8c-6.8,6.8-10.8,16-10.8,26v0.8h-66c-13.2,0-24.8,5.2-33.2,14c-8.4,8.4-14,20.4-14,33.2v199.2
+                                            C0,342,5.2,353.6,14,362c8.4,8.4,20.4,14,33.2,14h326.4c13.2,0,24.8-5.2,33.2-14c8.4-8.4,14-20.4,14-33.2V129.6
+                                            C420.8,116.4,415.6,104.8,406.8,96.4z M400,328.8h-0.4c0,7.2-2.8,13.6-7.6,18.4s-11.2,7.6-18.4,7.6H47.2
+                                            c-7.2,0-13.6-2.8-18.4-7.6c-4.8-4.8-7.6-11.2-7.6-18.4V129.6c0-7.2,2.8-13.6,7.6-18.4s11.2-7.6,18.4-7.6h77.2
+                                            c6,0,10.8-4.8,10.8-10.8V81.2c0-4.4,1.6-8.4,4.4-11.2s6.8-4.4,11.2-4.4h119.6c4.4,0,8.4,1.6,11.2,4.4c2.8,2.8,4.4,6.8,4.4,11.2
+                                            v11.6c0,6,4.8,10.8,10.8,10.8H374c7.2,0,13.6,2.8,18.4,7.6s7.6,11.2,7.6,18.4V328.8z" />
+                                            <path
+                                                d="M210.4,130.8c-27.2,0-52,11.2-69.6,28.8c-18,18-28.8,42.4-28.8,69.6s11.2,52,28.8,69.6c18,18,42.4,28.8,69.6,28.8
+                                            s52-11.2,69.6-28.8c18-18,28.8-42.4,28.8-69.6s-11.2-52-28.8-69.6C262.4,142,237.6,130.8,210.4,130.8z M264.8,284
+                                            c-14,13.6-33.2,22.4-54.4,22.4S170,297.6,156,284c-14-14-22.4-33.2-22.4-54.4c0-21.2,8.8-40.4,22.4-54.4
+                                            c14-14,33.2-22.4,54.4-22.4s40.4,8.8,54.4,22.4c14,14,22.4,33.2,22.4,54.4C287.6,250.8,278.8,270,264.8,284z" />
+                                            <circle cx="352.8" cy="150" r="19.6" />
+                                        </g>
+                                    </g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                            </svg>
+
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Camera Statusep</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" id="camera_status"> </h6>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm">
+                    <div class="card" style=" margin-right: 30px;">
+                        <div class="card-header">
+                            <svg height="16px" viewBox="0 0 384 384" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m343.59375 101.039062c-7.953125 3.847657-11.28125 13.417969-7.433594 21.367188 10.511719 21.714844 15.839844 45.121094 15.839844 69.59375 0 88.222656-71.777344 160-160 160s-160-71.777344-160-160 71.777344-160 160-160c36.558594 0 70.902344 11.9375 99.328125 34.519531 6.894531 5.503907 16.976563 4.351563 22.480469-2.566406 5.503906-6.914063 4.351562-16.984375-2.570313-22.480469-33.652343-26.746094-76-41.472656-119.238281-41.472656-105.863281 0-192 86.136719-192 192s86.136719 192 192 192 192-86.136719 192-192c0-29.335938-6.40625-57.449219-19.039062-83.527344-3.839844-7.96875-13.441407-11.289062-21.367188-7.433594zm0 0" />
+                                <path
+                                    d="m192 64c-8.832031 0-16 7.167969-16 16v112c0 8.832031 7.167969 16 16 16h80c8.832031 0 16-7.167969 16-16s-7.167969-16-16-16h-64v-96c0-8.832031-7.167969-16-16-16zm0 0" />
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Last Photo Taken</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" id="camera_timestamp"> </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<br>
+
+            <div class="row border-top" style="padding-top: 10px;">
+                <div id="image"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
 </div>
+
+
+
+
+
+<style>
+    .gauge {
+        width: 100%;
+        max-width: 250px;
+        font-family: "Roboto", sans-serif;
+        font-size: 32px;
+        color: #004033;
+    }
+
+    .gauge2 {
+        width: 100%;
+        max-width: 250px;
+        font-family: "Roboto", sans-serif;
+        font-size: 32px;
+        color: #004033;
+    }
+
+    .gauge__body {
+        width: 100%;
+        height: 0;
+        padding-bottom: 50%;
+        background: #b4c0be;
+        position: relative;
+        border-top-left-radius: 100% 200%;
+        border-top-right-radius: 100% 200%;
+        overflow: hidden;
+    }
+
+    .gauge__fill {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: inherit;
+        height: 100%;
+        background: #009578;
+        transform-origin: center top;
+        transform: rotate(0.5turn);
+        transition: transform 0.2s ease-out;
+    }
+
+    .gauge__fill2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: inherit;
+        height: 100%;
+        background: red;
+        transform-origin: center top;
+        transform: rotate(0.5turn);
+        transition: transform 0.2s ease-out;
+    }
+
+    .gauge__fill3 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: inherit;
+        height: 100%;
+        background: blue;
+        transform-origin: center top;
+        transform: rotate(0.5turn);
+        transition: transform 0.2s ease-out;
+    }
+
+    .gauge__cover {
+        width: 75%;
+        height: 150%;
+        background: #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* Text */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 25%;
+        box-sizing: border-box;
+    }
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
+<script>
+
+
+    function setGaugeValue(gauge, value) {
+        if (value < 0 || value > 1) {
+            return;
+        }
+
+        gauge.querySelector(".gauge__fill").style.transform = `rotate(${value / 2}turn)`;
+        gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+            value * 100
+        )}%`;
+    }
+
+    function setGaugeValue2(gauge, value, realVal) {
+        if (value < 0 || value > 1) {
+            return;
+        }
+
+        gauge.querySelector(".gauge__fill2").style.transform = `rotate(${value / 2}turn)`;
+        gauge.querySelector(".gauge__cover").textContent = `${realVal}`;
+    }
+
+    function setGaugeValue3(gauge, value, realVal) {
+        if (value < 0 || value > 1) {
+            return;
+        }
+
+        gauge.querySelector(".gauge__fill3").style.transform = `rotate(${value / 2}turn)`;
+        gauge.querySelector(".gauge__cover").textContent = `${realVal}`;
+    }
+
+
+
+
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDFV8JWL4z4zvkT-RXOrdZy0WW9QvT1XMo",
+        authDomain: "etiqa-sme-bizcareplus.firebaseapp.com",
+        databaseURL: "https://etiqa-sme-bizcareplus.firebaseio.com",
+        projectId: "etiqa-sme-bizcareplus",
+        storageBucket: "etiqa-sme-bizcareplus.appspot.com",
+        messagingSenderId: "1008389970494",
+        appId: "1:1008389970494:web:e16b2c1d7afcb55263cf6f"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+
+    
+    firebase.database().ref('record').once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            // console.log(childKey)
+            // console.log(childData)
+
+            if (childKey == 'image') {
+                var image = new Image();
+                image.src = 'data:image/png;base64,' + childData;
+                // console.log(image.src)
+                image.style.cssText = 'margin-top:240px';
+                var s = document.getElementById(childKey);
+                s.appendChild(image)
+                // image.src.rotat
+                s.style.transform = 'rotate(90deg)';
+            } else if (childKey == 'humidity') {
+                var gaugeElement = document.querySelector(".gauge");
+                setGaugeValue(gaugeElement, childData / 100);
+            } else if (childKey == 'temperature') {
+                var gaugeElement = document.querySelector(".gauge2");
+                setGaugeValue2(gaugeElement, childData / 40, childData);
+            } else if (childKey == 'water_level') {
+                var gaugeElement = document.querySelector(".gauge3");
+                setGaugeValue3(gaugeElement, childData / 1, childData);
+            }
+            else if (childKey == 'camera_status' && childData == 'not active') {
+                var str = 'not active. check connection';
+                var result = str.fontcolor("red");
+                var s = document.getElementById(childKey);
+                s.innerHTML = result;
+            } else if (childKey == 'camera_status' && childData == 'active') {
+                var str = 'connected';
+                var result = str.fontcolor("green");
+                var s = document.getElementById(childKey);
+                s.innerHTML = result;
+            }
+            else {
+                var s = document.getElementById(childKey);
+                s.innerHTML = childData;
+            }
+        });
+    });
+
+    function trigger_pump() {
+        console.log('test api')
+
+              var settings = {
+          "url": "https://emetic-woodpecker-1120.dataplicity.io/led/green/",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+
+          },
+          "data": JSON.stringify({"state":"1"}),
+        };
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html> 
