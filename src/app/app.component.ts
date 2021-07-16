@@ -13,16 +13,16 @@ export class AppComponent {
 
   }
 
-  aboutPage(){
-    this.router.navigate(['/about'], { state: { updatingUser: false } });
+  mainPage(){
+    this.router.navigate(['/'], { state: { updatingUser: false } });
   }
 
   contactPage(){
-    this.router.navigate(['/contact'], { state: { updatingUser: false } });
+    this.router.navigate(['/camera'], { state: { updatingUser: false } });
   }
 
-  architecturePage(){
-    this.router.navigate(['/architecture'], { state: { updatingUser: false } });
+  tasksPage(){
+    this.router.navigate(['/tasks'], { state: { updatingUser: false } });
   }
 
   mediaPage(){
