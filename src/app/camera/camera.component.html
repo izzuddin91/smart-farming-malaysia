@@ -15,8 +15,9 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Time</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" id="time"></h6>
+                            <h6 class="card-subtitle mb-2 text-muted" id="time">{{time}}</h6>
                         </div>
+                        
                     </div>
                 </div>
 
@@ -82,8 +83,8 @@
 
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Camera Statusep</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" id="camera_status"> </h6>
+                            <h5 class="card-title">Camera Status</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" id="camera_status"> {{camera_status}} </h6>
                         </div>
                     </div>
                 </div>
@@ -102,8 +103,15 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Last Photo Taken</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" id="camera_timestamp"> </h6>
+                            <h6 class="card-subtitle mb-2 text-muted" id="camera_timestamp"> {{camera_timestamp}} </h6>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <div  *ngIf="image != null">
+                    <h2>Front Image</h2>
+                    <img id="image" src="data:image/png;base64,{{ image }}" alt="test" />
+                  </div>
             </div>
