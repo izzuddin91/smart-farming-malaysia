@@ -1,14 +1,25 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import firebase from 'firebase';
 import {saveAs as importedSaveAs} from "file-saver";
+import {trigger, state, style, animate, transition} from '@angular/animations';
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
-  styleUrls: ['./camera.component.scss']
+  styleUrls: ['./camera.component.scss'],
+  animations: [
+    // Each unique animation requires its own trigger. The first argument of the trigger function is the name
+    trigger('rotatedState', [
+      state('default', style({ transform: 'rotate(90deg)' })),
+      state('rotateLeft', style({ transform: 'rotate(0)' })),
+      state('rotated', style({ transform: 'rotate(-180deg)' })),
+      transition('rotated => default', animate('1500ms ease-out')),
+      transition('default => rotated', animate('400ms ease-in'))
+  ])
+]
 })
 export class CameraComponent implements OnInit {
-
+  state: string = 'default';
   time : String =  ''
   camera_status : String =  ''
   camera_timestamp : String = ''
@@ -37,13 +48,9 @@ export class CameraComponent implements OnInit {
             this.camera_status = retrieve_val['camera_status']
             this.camera_timestamp = retrieve_val['camera_timestamp']
             this.image = retrieve_val['image']
-          
+            this.state = (this.state === 'default' ? 'rotated' : 'default');
 
-            const base64 = this.image;
-const imageName = 'image.png';
-const imageBlob = this.dataURItoBlob(base64);
-const imageFile = new File([imageBlob], imageName, { type: 'image/png' });
-importedSaveAs(imageFile, 'image');
+
           } else {
             console.log("No data available");
           }
@@ -52,11 +59,26 @@ importedSaveAs(imageFile, 'image');
         });
 
         // const degree = 90;
-        
+        this.state = (this.state === 'default' ? 'rotated' : 'default');
         
 
         
    }
+
+   downloadImage(){
+    var a = new Date();
+
+    var currentDateString = (a.getDate())+ '/'+ (a.getMonth()+1) + '/'+ a.getFullYear();
+const base64 = this.image;
+const imageName = `image-${currentDateString}.png`;
+const imageBlob = this.dataURItoBlob(base64);
+const imageFile = new File([imageBlob], imageName, { type: 'image/png' });
+importedSaveAs(imageFile, `image-${currentDateString}`);
+   }
+
+   rotate() {
+    this.state = (this.state === 'default' ? 'rotated' : 'default');
+}
 
   ngOnInit(): void {
     document.getElementById("image").style.transform = 'rotate(90deg)';

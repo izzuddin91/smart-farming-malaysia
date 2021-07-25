@@ -111,7 +111,12 @@
 
             <div>
                 <div  *ngIf="image != null">
-                    <h2>Front Image</h2>
-                    <img id="image" src="data:image/png;base64,{{ image }}" alt="test" />
+                    <br>
+                    <button style="margin-right:10px ;" (click)="downloadImage()">Download image</button> <button (click)="rotate()">Rotate Image</button>
+                    <img style="margin-top: 150px;" [@rotatedState]='state' id="image" src="data:image/png;base64,{{ image }}" alt="test" />
                   </div>
+                  <br>
+                  
             </div>
+
+            

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CameraComponent } from './camera/camera.component';
 import { TasksComponent } from './tasks/tasks.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,6 +13,7 @@ import { TasksComponent } from './tasks/tasks.component';
     TasksComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule
   ],
